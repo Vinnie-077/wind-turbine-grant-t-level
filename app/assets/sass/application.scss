@@ -4,3 +4,63 @@
 // 
 
 // Add extra styles here
+
+// Progress bar styles
+.app-progress-bar {
+  margin-bottom: 30px;
+}
+
+.app-progress-bar__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 4px;
+}
+
+.app-progress-bar__item {
+  flex: 1;
+  height: 8px;
+  background-color: #b1b4b6;
+  border-radius: 0;
+}
+
+.app-progress-bar__item--complete {
+  background-color: #1d70b8;
+}
+
+.app-progress-bar__item--current {
+  background-color: #1d70b8;
+}
+
+.app-progress-bar__text {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #505a5f;
+}
+
+// Print button styles
+.app-print-link {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+@media print {
+  .govuk-header,
+  .govuk-phase-banner,
+  .govuk-footer,
+  .app-print-link,
+  .govuk-back-link {
+    display: none !important;
+  }
+  
+  .govuk-panel {
+    border: 2px solid #000 !important;
+    background: #fff !important;
+  }
+  
+  .govuk-panel__title,
+  .govuk-panel__body {
+    color: #000 !important;
+  }
+}

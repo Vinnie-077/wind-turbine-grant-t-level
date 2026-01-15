@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+{% from "includes/progress-bar.html" import progressBar %}
+
+{% block pageTitle %}
+  {% if errors %}Error: {% endif %}Available space and commitment – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      {{ progressBar(7, 9) }}
+      <h1 class="govuk-heading-l">Available space and commitment</h1>
+
+      <form class="form" action="/turbine-space-answer" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "How much space do you have available for turbine installation?",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Enter the available space in square feet. You need a minimum of 200 square feet per turbine. Maximum 4 turbines per application (800 square feet)."
+          },
+          id: "available-space",
+          name: "available-space",
+          value: data['available-space'],
+          classes: "govuk-input--width-10",
+          suffix: {
+            text: "sq ft"
+          },
+          inputmode: "numeric",
+          errorMessage: errorMessages['available-space'] if errorMessages else false
+        }) }}
+
+        {% if maxTurbines %}
+          {{ govukInsetText({
+            text: "Based on your available space, you can install up to " + maxTurbines + " turbine" + ("s" if maxTurbines > 1 else "") + "."
+          }) }}
+        {% endif %}
+
+        {{ govukRadios({
+          name: "commitment-agreed",
+          value: data['commitment-agreed'],
+          fieldset: {
+            legend: {
+              text: "Do you agree to keep the turbine(s) in place for at least 20 years?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "This is a requirement of the grant. If you remove the turbine(s) before 20 years, you may need to repay the grant."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes, I agree to the 20-year commitment"
+            },
+            {
+              value: "No",
+              text: "No, I do not agree"
+            }
+          ],
+          errorMessage: errorMessages['commitment-agreed'] if errorMessages else false
+        }) }}
+
+        {{ govukCharacterCount({
+          name: "additional-info",
+          id: "additional-info",
+          value: data['additional-info'],
+          maxlength: 250,
+          label: {
+            text: "Additional information (optional)",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Tell us anything else you think we should know about your application"
+          },
+          rows: 5
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

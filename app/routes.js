@@ -6,26 +6,20 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
+// Import route modules
+require('./routes/business')
+require('./routes/property')
+require('./routes/turbine')
+require('./routes/review')
+require('./routes/cookies')
+
+// Timeout route - clears session and shows timeout page
+router.get('/timeout', function (req, res) {
+  req.session.destroy()
+  res.render('timeout')
+})
 
 // Redirect root to start page
 router.get('/', function (req, res) {
   res.redirect('/start')
-})
-
-// Run this code when a form is submitted to 'juggling-balls-answer'
-router.post('/juggling-balls-answer', function (req, res) {
-
-  // Make a variable and give it the value from 'how-many-balls'
-  var howManyBalls = req.session.data['how-many-balls']
-
-  // Check whether the variable matches a condition
-  if (howManyBalls == "3 or more"){
-    // Send user to next page
-    res.redirect('/juggling-trick')
-  } else {
-    // Send user to ineligible page
-    res.redirect('/ineligible')
-  }
-
 })

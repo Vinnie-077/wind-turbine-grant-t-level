@@ -1,14 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
+  You are not eligible – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
@@ -16,15 +9,38 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
-        You cannot get a juggling licence
-      </h1>
+      {{ govukPanel({
+        titleText: "You are not eligible for this grant",
+        classes: "govuk-panel--interruption"
+      }) }}
 
-      <p>You need to be able to juggle at least 3 balls to get a licence.</p>
+      <h2 class="govuk-heading-m">Why you are not eligible</h2>
 
-      <p>
-        <a href="https://www.gov.uk" class="govuk-link">Find out more about learning to juggle on GOV.UK</a>
-      </p>
+      <p>Based on the information you provided, you do not meet the eligibility criteria for the wind turbine grant.</p>
+
+      <p>This may be because:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you do not own the business</li>
+        <li>the business does not own the property or land</li>
+        <li>your property is not connected to the National Grid</li>
+        <li>you do not have enough available space (minimum 200 square feet required)</li>
+        <li>you have not agreed to the 20-year turbine placement commitment</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">What to do next</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>check you have entered the correct information and <a href="/start" class="govuk-link">start a new application</a></li>
+        <li>contact your local authority for advice on alternative grants</li>
+        <li>visit the <a href="https://www.gov.uk/green-deal-energy-saving-measures" class="govuk-link">Green Deal energy saving measures</a> page for other options</li>
+        <li>speak to a renewable energy advisor about your options</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Go to GOV.UK homepage",
+        href: "https://www.gov.uk"
+      }) }}
 
     </div>
   </div>

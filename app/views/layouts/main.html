@@ -6,11 +6,55 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 {% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
 
+{% block bodyStart %}
+  {% if not data['cookies-accepted'] %}
+    <div class="govuk-cookie-banner" data-nosnippet role="region" aria-label="Cookies on {{ serviceName }}">
+      <div class="govuk-cookie-banner__message govuk-width-container">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on {{ serviceName }}</h2>
+            <div class="govuk-cookie-banner__content">
+              <p class="govuk-body">We use some essential cookies to make this service work.</p>
+              <p class="govuk-body">We would also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-button-group">
+          <form action="/cookies" method="post" style="display: inline;">
+            <button type="submit" name="cookies" value="accept" class="govuk-button" data-module="govuk-button">
+              Accept analytics cookies
+            </button>
+          </form>
+          <form action="/cookies" method="post" style="display: inline;">
+            <button type="submit" name="cookies" value="reject" class="govuk-button" data-module="govuk-button">
+              Reject analytics cookies
+            </button>
+          </form>
+          <a class="govuk-link" href="/cookies">View cookies</a>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock %}
+
 {% block header %}
 
-    {{ govukHeader() }}
+    {{ govukHeader({
+      homepageUrl: "https://www.gov.uk"
+    }) }}
     {{ govukServiceNavigation({
-        serviceName: serviceName
+        serviceName: serviceName,
+        serviceUrl: "/start"
     })}}
 
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukPhaseBanner({
+    tag: {
+      text: "Alpha"
+    },
+    html: 'This is an alpha service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
+  }) }}
+  {{ super() }}
 {% endblock %}

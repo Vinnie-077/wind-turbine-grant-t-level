@@ -1,0 +1,12 @@
+{% macro progressBar(currentStep, totalSteps) %}
+<div class="app-progress-bar">
+  <ol class="app-progress-bar__list" aria-label="Progress">
+    {% for i in range(1, totalSteps + 1) %}
+      <li class="app-progress-bar__item {% if i < currentStep %}app-progress-bar__item--complete{% elif i == currentStep %}app-progress-bar__item--current{% endif %}" 
+          aria-label="Step {{ i }}{% if i < currentStep %} complete{% elif i == currentStep %} current{% endif %}">
+      </li>
+    {% endfor %}
+  </ol>
+  <p class="app-progress-bar__text">Step {{ currentStep }} of {{ totalSteps }}</p>
+</div>
+{% endmacro %}

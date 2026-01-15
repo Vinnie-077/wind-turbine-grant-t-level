@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Email preview – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/accepted"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Email preview</h1>
+      
+      <p class="govuk-body">This is a preview of the confirmation email that will be sent to <strong>{{ data['email-address'] }}</strong>.</p>
+
+      {% set selectedTurbines = data['turbine-count'] | int %}
+      {% set totalPayment = selectedTurbines * 20000 %}
+
+      <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 30px; background-color: #f3f2f1;">
+        
+        <p style="color: #505a5f; font-size: 14px; margin-bottom: 20px;">
+          From: wind-turbine-grant@defra.gov.uk<br>
+          To: {{ data['email-address'] }}<br>
+          Subject: Wind Turbine Grant Application Received - Reference WTG-{{ range(100000, 999999) | random }}
+        </p>
+
+        <hr style="border: none; border-top: 1px solid #b1b4b6; margin-bottom: 20px;">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/HM_Government_logo.svg" alt="HM Government" style="height: 40px; margin-bottom: 20px;" />
+
+        <h2 class="govuk-heading-m" style="margin-bottom: 10px;">Wind Turbine Grant Application</h2>
+        
+        <p class="govuk-body">Dear {{ data['full-name'] }},</p>
+
+        <p class="govuk-body">Thank you for submitting your application for the Wind Turbine Grant scheme.</p>
+
+        <h3 class="govuk-heading-s">Your application details</h3>
+
+        <table class="govuk-table" style="margin-bottom: 20px;">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 50%;">Reference number</th>
+              <td class="govuk-table__cell">WTG-{{ range(100000, 999999) | random }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Number of turbines</th>
+              <td class="govuk-table__cell">{{ selectedTurbines }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Grant amount</th>
+              <td class="govuk-table__cell">£{{ totalPayment | string }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Preferred assembly date</th>
+              <td class="govuk-table__cell">{{ data['assembly-date-day'] }}/{{ data['assembly-date-month'] }}/{{ data['assembly-date-year'] }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Business name</th>
+              <td class="govuk-table__cell">{{ data['business-name'] }}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Installation address</th>
+              <td class="govuk-table__cell">
+                {{ data['address-line-1'] }}<br>
+                {% if data['address-line-2'] %}{{ data['address-line-2'] }}<br>{% endif %}
+                {{ data['address-town'] }}<br>
+                {% if data['address-county'] %}{{ data['address-county'] }}<br>{% endif %}
+                {{ data['address-postcode'] }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3 class="govuk-heading-s">What happens next</h3>
+
+        <p class="govuk-body">Your application will be reviewed by our team. You can expect a decision within <strong>10 working days</strong>.</p>
+
+        <p class="govuk-body">If your application is approved:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>We will contact you to arrange the turbine installation</li>
+          <li>Installation will be scheduled around your preferred assembly date</li>
+          <li>Payment will be made within 6 months of successful installation</li>
+        </ul>
+
+        <p class="govuk-body">If we need any additional information, we will contact you at this email address or call you on {{ data['phone-number'] }}.</p>
+
+        <hr style="border: none; border-top: 1px solid #b1b4b6; margin: 20px 0;">
+
+        <p class="govuk-body-s" style="color: #505a5f;">
+          This is an automated email. Please do not reply directly to this message.<br><br>
+          If you have any questions, contact us at:<br>
+          Email: wind-turbine-grant@defra.gov.uk<br>
+          Phone: 0300 123 4567 (Monday to Friday, 9am to 5pm)
+        </p>
+
+        <p class="govuk-body-s" style="color: #505a5f;">
+          Department for Environment, Food & Rural Affairs<br>
+          © Crown copyright
+        </p>
+
+      </div>
+
+      <p>
+        <a href="/accepted" class="govuk-link">Return to confirmation page</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

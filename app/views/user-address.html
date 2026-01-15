@@ -1,0 +1,100 @@
+{% extends "layouts/main.html" %}
+{% from "includes/progress-bar.html" import progressBar %}
+
+{% block pageTitle %}
+  {% if errors %}Error: {% endif %}Your address – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      {{ progressBar(2, 9) }}
+      <h1 class="govuk-heading-l">What is your address?</h1>
+
+      <form class="form" action="/address-answer" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Address line 1"
+          },
+          id: "address-line-1",
+          name: "address-line-1",
+          value: data['address-line-1'],
+          autocomplete: "address-line1",
+          errorMessage: errorMessages['address-line-1'] if errorMessages else false
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Address line 2 (optional)"
+          },
+          id: "address-line-2",
+          name: "address-line-2",
+          value: data['address-line-2'],
+          autocomplete: "address-line2"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+          id: "address-town",
+          name: "address-town",
+          value: data['address-town'],
+          autocomplete: "address-level2",
+          classes: "govuk-input--width-20",
+          errorMessage: errorMessages['address-town'] if errorMessages else false
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "County (optional)"
+          },
+          id: "address-county",
+          name: "address-county",
+          value: data['address-county'],
+          classes: "govuk-input--width-20"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+          hint: {
+            text: "For example, M11 3FF"
+          },
+          id: "address-postcode",
+          name: "address-postcode",
+          value: data['address-postcode'],
+          autocomplete: "postal-code",
+          classes: "govuk-input--width-10",
+          errorMessage: errorMessages['address-postcode'] if errorMessages else false
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

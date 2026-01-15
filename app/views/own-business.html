@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+{% from "includes/progress-bar.html" import progressBar %}
+
+{% block pageTitle %}
+  Do you own the business? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ progressBar(4, 9) }}
+
+      <form class="form" action="/own-business-answer" method="post">
+
+        {{ govukRadios({
+          name: "own-business",
+          value: data['own-business'],
+          fieldset: {
+            legend: {
+              text: "Do you own the business?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

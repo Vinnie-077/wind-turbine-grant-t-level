@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+{% from "includes/progress-bar.html" import progressBar %}
+
+{% block pageTitle %}
+  {% if errors %}Error: {% endif %}Business name – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      {{ progressBar(5, 9) }}
+      <h1 class="govuk-heading-l">What is your business called?</h1>
+
+      <form class="form" action="/business-name-answer" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Business name",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "Enter the registered name of your business"
+          },
+          id: "business-name",
+          name: "business-name",
+          value: data['business-name'],
+          errorMessage: errorMessages['business-name'] if errorMessages else false
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

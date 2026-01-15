@@ -1,0 +1,86 @@
+{% extends "layouts/main.html" %}
+{% from "includes/progress-bar.html" import progressBar %}
+
+{% block pageTitle %}
+  {% if errors %}Error: {% endif %}National Grid connection – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      {{ progressBar(3, 9) }}
+
+      <form class="form" action="/national-grid-answer" method="post">
+
+        {% set nationalGridRefHtml %}
+          {{ govukInput({
+            id: "national-grid-reference",
+            name: "national-grid-reference",
+            value: data['national-grid-reference'],
+            classes: "govuk-input--width-20",
+            label: {
+              text: "National Grid reference"
+            },
+            hint: {
+              text: "For example, TQ 30163 80208"
+            },
+            errorMessage: errorMessages['national-grid-reference'] if errorMessages else false
+          }) }}
+        {% endset %}
+
+        {{ govukRadios({
+          name: "national-grid-connected",
+          value: data['national-grid-connected'],
+          fieldset: {
+            legend: {
+              text: "Is your property connected to the National Grid?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Your property must be connected to the National Grid to be eligible for this grant"
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: nationalGridRefHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ],
+          errorMessage: errorMessages['national-grid-connected'] if errorMessages else false
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

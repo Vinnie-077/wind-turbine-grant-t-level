@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+{% from "includes/progress-bar.html" import progressBar %}
+
+{% block pageTitle %}
+  {% if errors %}Error: {% endif %}Preferred assembly date – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      {{ progressBar(8, 9) }}
+      <h1 class="govuk-heading-l">When would you like the turbine(s) to be assembled?</h1>
+
+      <form class="form" action="/assembly-date-answer" method="post">
+
+        {{ govukDateInput({
+          id: "assembly-date",
+          namePrefix: "assembly-date",
+          fieldset: {
+            legend: {
+              text: "Preferred assembly date",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "For example, 15 6 2026. The date must be between 3 months and 1 year from today, and must be a weekday (Monday to Friday)."
+          },
+          items: [
+            {
+              name: "day",
+              classes: "govuk-input--width-2",
+              value: data['assembly-date-day']
+            },
+            {
+              name: "month",
+              classes: "govuk-input--width-2",
+              value: data['assembly-date-month']
+            },
+            {
+              name: "year",
+              classes: "govuk-input--width-4",
+              value: data['assembly-date-year']
+            }
+          ],
+          errorMessage: errorMessages['assembly-date'] if errorMessages else false
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Application submitted – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% set selectedTurbines = data['turbine-count'] | int %}
+      {% set totalPayment = selectedTurbines * 20000 %}
+
+      {{ govukPanel({
+        titleText: "Application submitted",
+        html: "Your reference number<br><strong>WTG-" + (range(100000, 999999) | random | string) + "</strong>"
+      }) }}
+
+      <p class="app-print-link">
+        <a href="#" class="govuk-link" onclick="window.print(); return false;">Print or save this page</a>
+      </p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>We have sent a confirmation email to <strong>{{ data['email-address'] }}</strong>. <a href="/email-preview" class="govuk-link">Preview the email</a></p>
+
+      <p>Your application will be reviewed by our team. You will receive a decision within 10 working days.</p>
+
+      <h3 class="govuk-heading-s">Your application summary</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Number of turbines: {{ selectedTurbines }}</li>
+        <li>Grant amount: £{{ totalPayment }}</li>
+        <li>Preferred assembly date: {{ data['assembly-date-day'] }}/{{ data['assembly-date-month'] }}/{{ data['assembly-date-year'] }}</li>
+        <li>Estimated payment date: 6 months after assembly</li>
+      </ul>
+
+      <h3 class="govuk-heading-s">If your application is approved</h3>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>we will contact you to arrange the turbine installation</li>
+        <li>installation will be scheduled around your preferred assembly date</li>
+        <li>payment will be made within 6 months of successful installation</li>
+      </ul>
+
+      <p>
+        <a href="https://www.gov.uk" class="govuk-link">Go to GOV.UK homepage</a>
+      </p>
+
+      <p>
+        <a href="/start" class="govuk-link">Start a new application</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

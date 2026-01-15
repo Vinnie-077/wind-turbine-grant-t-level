@@ -1,0 +1,362 @@
+{% extends "layouts/main.html" %}
+{% from "includes/progress-bar.html" import progressBar %}
+
+{% block pageTitle %}
+  {% if errors %}Error: {% endif %}Review your application – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if errors %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: errors
+        }) }}
+      {% endif %}
+
+      {{ progressBar(9, 9) }}
+      <h1 class="govuk-heading-xl">Review your application</h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: data['full-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/name-contact",
+                  text: "Change",
+                  visuallyHiddenText: "full name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data['email-address']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/name-contact",
+                  text: "Change",
+                  visuallyHiddenText: "email address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Phone number"
+            },
+            value: {
+              text: data['phone-number']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/name-contact",
+                  text: "Change",
+                  visuallyHiddenText: "phone number"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Address details</h2>
+
+      {% set addressHtml %}
+        {{ data['address-line-1'] }}<br>
+        {% if data['address-line-2'] %}{{ data['address-line-2'] }}<br>{% endif %}
+        {{ data['address-town'] }}<br>
+        {% if data['address-county'] %}{{ data['address-county'] }}<br>{% endif %}
+        {{ data['address-postcode'] }}
+      {% endset %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: addressHtml
+            },
+            actions: {
+              items: [
+                {
+                  href: "/user-address",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Connected to National Grid"
+            },
+            value: {
+              text: data['national-grid-connected']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/national-grid",
+                  text: "Change",
+                  visuallyHiddenText: "National Grid connection"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "National Grid reference"
+            },
+            value: {
+              text: data['national-grid-reference']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/national-grid",
+                  text: "Change",
+                  visuallyHiddenText: "National Grid reference"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Business and property</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Do you own the business?"
+            },
+            value: {
+              text: data['own-business']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/own-business",
+                  text: "Change",
+                  visuallyHiddenText: "business ownership"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Does the business own the property?"
+            },
+            value: {
+              text: data['own-property']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/own-property",
+                  text: "Change",
+                  visuallyHiddenText: "property ownership"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Turbine installation details</h2>
+
+      {% set maxTurbines = (data['available-space'] | int / 200) | int %}
+      {% if maxTurbines > 4 %}
+        {% set maxTurbines = 4 %}
+      {% endif %}
+      {% if maxTurbines < 1 %}
+        {% set maxTurbines = 1 %}
+      {% endif %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Available space"
+            },
+            value: {
+              text: data['available-space'] + " square feet"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/turbine-space",
+                  text: "Change",
+                  visuallyHiddenText: "available space"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Maximum turbines available"
+            },
+            value: {
+              text: maxTurbines | string + " turbine" + ("s" if maxTurbines > 1 else "")
+            }
+          },
+          {
+            key: {
+              text: "20-year commitment agreed"
+            },
+            value: {
+              text: data['commitment-agreed']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/turbine-space",
+                  text: "Change",
+                  visuallyHiddenText: "20-year commitment"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Additional information"
+            },
+            value: {
+              text: data['additional-info'] or "None provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/turbine-space",
+                  text: "Change",
+                  visuallyHiddenText: "additional information"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Preferred assembly date"
+            },
+            value: {
+              text: data['assembly-date-day'] + "/" + data['assembly-date-month'] + "/" + data['assembly-date-year']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/assembly-date",
+                  text: "Change",
+                  visuallyHiddenText: "preferred assembly date"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Select number of turbines</h2>
+
+      <form class="form" action="/review-answer" method="post">
+
+        {% set turbineItems = [] %}
+        {% for i in range(1, maxTurbines + 1) %}
+          {% set payment = i * 20000 %}
+          {% set paymentFormatted = "£" + (payment | string) %}
+          {% set turbineItems = (turbineItems.push({
+            value: i | string,
+            text: i | string + " turbine" + ("s" if i > 1 else "") + " - You will receive " + paymentFormatted,
+            checked: data['turbine-count'] == i | string
+          }), turbineItems) %}
+        {% endfor %}
+
+        {{ govukRadios({
+          name: "turbine-count",
+          fieldset: {
+            legend: {
+              text: "How many turbines would you like to install?",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "Select the number of turbines you want. You will receive £20,000 per turbine."
+          },
+          items: turbineItems,
+          errorMessage: errorMessages['turbine-count'] if errorMessages else false
+        }) }}
+
+        {% if data['turbine-count'] %}
+          {% set selectedTurbines = data['turbine-count'] | int %}
+          {% set totalPayment = selectedTurbines * 20000 %}
+          
+          {{ govukInsetText({
+            html: "<strong>Payment summary</strong><br>You have selected " + selectedTurbines | string + " turbine" + ("s" if selectedTurbines > 1 else "") + ".<br>You will receive: <strong>£" + (totalPayment | string) + "</strong><br>Estimated payment date: 6 months after assembly (" + data['assembly-date-day'] + "/" + data['assembly-date-month'] + "/" + data['assembly-date-year'] + ")"
+          }) }}
+        {% endif %}
+
+        <h2 class="govuk-heading-m">Submit your application</h2>
+
+        <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+
+        {{ govukCheckboxes({
+          name: "declaration",
+          fieldset: {
+            legend: {
+              text: "Declaration",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "agreed",
+              text: "I confirm that the information I have provided is correct and complete",
+              checked: data['declaration'] == "agreed"
+            }
+          ],
+          errorMessage: errorMessages['declaration'] if errorMessages else false
+        }) }}
+
+        {{ govukWarningText({
+          text: "You may be prosecuted if you give false information.",
+          iconFallbackText: "Warning"
+        }) }}
+
+        {{ govukButton({
+          text: "Accept and submit application"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

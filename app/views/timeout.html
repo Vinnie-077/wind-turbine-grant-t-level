@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Sorry, you'll have to start again – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="govuk-phase-banner">
+    <p class="govuk-phase-banner__content">
+      <strong class="govuk-tag govuk-phase-banner__content__tag">
+        Beta
+      </strong>
+      <span class="govuk-phase-banner__text">
+        This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Sorry, you'll have to start again</h1>
+
+      <p class="govuk-body">Your session automatically ends if you don't use the service for 30 minutes. We do this for your security.</p>
+
+      <p class="govuk-body">We haven't saved any information you've entered.</p>
+
+      <p class="govuk-body">You need to start your application again. <a href="/start" class="govuk-link">Go to the start page</a>.</p>
+
+    </div>
+  </div>
+
+{% endblock %}
