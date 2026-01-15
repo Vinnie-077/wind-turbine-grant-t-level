@@ -45,6 +45,16 @@
   margin-bottom: 20px;
 }
 
+// Grey panel for ineligible page
+.panel-grey {
+  background-color: #f3f2f1 !important;
+  color: #0b0c0c !important;
+}
+
+.panel-grey .govuk-panel__title {
+  color: #0b0c0c !important;
+}
+
 @media print {
   .govuk-header,
   .govuk-phase-banner,
@@ -64,3 +74,122 @@
     color: #000 !important;
   }
 }
+
+// Timeline styles for T-Level Hub
+.timeline {
+  position: relative;
+  padding: 0;
+  margin: 30px 0;
+}
+
+.timeline__item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: 40px;
+  border-left: 3px solid #b1b4b6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.timeline__item--current {
+  border-left-color: #1d70b8;
+}
+
+.timeline__marker {
+  position: absolute;
+  left: -12px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b1b4b6;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #b1b4b6;
+}
+
+.timeline__marker--complete {
+  background-color: #00703c;
+  box-shadow: 0 0 0 2px #00703c;
+}
+
+.timeline__marker--current {
+  background-color: #1d70b8;
+  box-shadow: 0 0 0 2px #1d70b8;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px #1d70b8;
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(29, 112, 184, 0.3);
+  }
+}
+
+.timeline__content {
+  padding: 0;
+}
+
+.timeline__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+
+.timeline__header h2 {
+  margin: 0;
+  flex: 1;
+}
+
+.timeline__date {
+  color: #626a6e;
+  font-weight: bold;
+  margin: 5px 0 10px 0;
+}
+
+.timeline__description {
+  margin-top: 10px;
+}
+
+.timeline__description h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.timeline__description ul {
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .timeline__item {
+    padding-left: 40px;
+  }
+  
+  .timeline__marker {
+    left: -8px;
+    width: 16px;
+    height: 16px;
+    box-shadow: 0 0 0 1px #b1b4b6;
+  }
+  
+  .timeline__marker--complete {
+    box-shadow: 0 0 0 1px #00703c;
+  }
+  
+  .timeline__marker--current {
+    box-shadow: 0 0 0 1px #1d70b8;
+  }
+  
+  .timeline__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timeline__header h2 {
+    margin-bottom: 5px;
+  }
+}
+

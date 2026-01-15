@@ -1,0 +1,115 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block pageTitle %}
+  T-Level Team Hub
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "T-Level Hub"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">T-Level Team Hub</h1>
+      <p class="govuk-body-l">A 15-week digital placement at Defra, learning real-world skills in design, development, and delivery.</p>
+
+      <div style="background-color: #f3f2f1; padding: 40px; margin: 40px 0; border-left: 4px solid #1d70b8;">
+        <h2 class="govuk-heading-m" style="margin-top: 0;">About This Placement</h2>
+        <p class="govuk-body">This site documents a T-Level Digital Production, Design and Development placement at the Department for Environment, Food and Rural Affairs (Defra). Over 15 weeks, we covered core competencies in government digital services, built two live projects, and learned industry best practices in Agile delivery and user-centered design.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">Explore the Placement</h2>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; margin-bottom: 20px;">
+            <h3 class="govuk-heading-s"><a href="/t-level/timeline" class="govuk-link" style="text-decoration: none;">Timeline</a></h3>
+            <p class="govuk-body-s">Follow the 15-week journey through induction, modules, and live projects.</p>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; margin-bottom: 20px;">
+            <h3 class="govuk-heading-s"><a href="/t-level/learnings" class="govuk-link" style="text-decoration: none;">Key Learnings</a></h3>
+            <p class="govuk-body-s">Deep dive into what we learned: GOV.UK patterns, testing, PowerApps, and more.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; margin-bottom: 20px;">
+            <h3 class="govuk-heading-s"><a href="/t-level/technologies" class="govuk-link" style="text-decoration: none;">Technologies</a></h3>
+            <p class="govuk-body-s">Full breakdown of the tech stack, tools, and methodologies used.</p>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-half">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; margin-bottom: 20px;">
+            <h3 class="govuk-heading-s"><a href="/t-level/team" class="govuk-link" style="text-decoration: none;">The Team</a></h3>
+            <p class="govuk-body-s">Meet the placement students and mentors who made it happen.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; margin-bottom: 20px;">
+            <h3 class="govuk-heading-s"><a href="/t-level/retrospective" class="govuk-link" style="text-decoration: none;">Retrospective</a></h3>
+            <p class="govuk-body-s">Honest reflection on what went well, challenges, and key takeaways.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m" style="margin-top: 60px;">By The Numbers</h2>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-quarter">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; text-align: center;">
+            <p style="font-size: 32px; font-weight: bold; margin: 0; color: #1d70b8;">15</p>
+            <p class="govuk-body-s" style="margin: 0;">Weeks</p>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; text-align: center;">
+            <p style="font-size: 32px; font-weight: bold; margin: 0; color: #1d70b8;">2</p>
+            <p class="govuk-body-s" style="margin: 0;">Live Projects</p>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; text-align: center;">
+            <p style="font-size: 32px; font-weight: bold; margin: 0; color: #1d70b8;">6</p>
+            <p class="govuk-body-s" style="margin: 0;">Modules</p>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+          <div style="padding: 20px; border: 1px solid #b1b4b6; text-align: center;">
+            <p style="font-size: 32px; font-weight: bold; margin: 0; color: #1d70b8;">∞</p>
+            <p class="govuk-body-s" style="margin: 0;">Learnings</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

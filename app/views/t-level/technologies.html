@@ -1,0 +1,309 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Technologies – T-Level Team Hub
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "T-Level Hub",
+        href: "/t-level"
+      },
+      {
+        text: "Technologies"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Technologies & Tools</h1>
+      <p class="govuk-body">The full tech stack and methodologies used throughout the placement.</p>
+
+      <h2 class="govuk-heading-m">Frontend</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "GOV.UK Prototype Kit"
+            },
+            value: {
+              text: "Rapid prototyping framework with design system components"
+            }
+          },
+          {
+            key: {
+              text: "Nunjucks"
+            },
+            value: {
+              text: "Templating language for dynamic HTML generation"
+            }
+          },
+          {
+            key: {
+              text: "HTML5"
+            },
+            value: {
+              text: "Semantic markup with accessibility best practices"
+            }
+          },
+          {
+            key: {
+              text: "CSS & SCSS"
+            },
+            value: {
+              text: "Styling with GOV.UK design tokens and custom styles"
+            }
+          },
+          {
+            key: {
+              text: "JavaScript"
+            },
+            value: {
+              text: "Client-side logic, form validation, session management"
+            }
+          },
+          {
+            key: {
+              text: "PowerApps Canvas Apps"
+            },
+            value: {
+              text: "Low-code app development for Tree Health System"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Backend & Data</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Node.js & Express"
+            },
+            value: {
+              text: "Server-side JavaScript runtime and web framework"
+            }
+          },
+          {
+            key: {
+              text: "Dataverse"
+            },
+            value: {
+              text: "Microsoft's cloud data platform for PowerApps integration"
+            }
+          },
+          {
+            key: {
+              text: "Session Management"
+            },
+            value: {
+              text: "Express-session for stateful user applications"
+            }
+          },
+          {
+            key: {
+              text: "Data Validation"
+            },
+            value: {
+              text: "Server-side validation for security and data integrity"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Tools & Platforms</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Jira"
+            },
+            value: {
+              text: "Work tracking, sprint management, and team collaboration"
+            }
+          },
+          {
+            key: {
+              text: "Notion"
+            },
+            value: {
+              text: "Documentation, knowledge base, and team notes"
+            }
+          },
+          {
+            key: {
+              text: "GitHub"
+            },
+            value: {
+              text: "Version control, code review, and repository management"
+            }
+          },
+          {
+            key: {
+              text: "Git"
+            },
+            value: {
+              text: "Distributed version control system"
+            }
+          },
+          {
+            key: {
+              text: "VS Code"
+            },
+            value: {
+              text: "Code editor with extensive extensions"
+            }
+          },
+          {
+            key: {
+              text: "PowerApps Studio"
+            },
+            value: {
+              text: "Low-code development environment"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Testing & QA</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Manual Testing"
+            },
+            value: {
+              text: "Test case design, exploratory testing, regression testing"
+            }
+          },
+          {
+            key: {
+              text: "Browser DevTools"
+            },
+            value: {
+              text: "Chrome, Firefox, Safari for debugging and inspection"
+            }
+          },
+          {
+            key: {
+              text: "Accessibility Testing"
+            },
+            value: {
+              text: "WAVE, Lighthouse, screen reader testing for WCAG compliance"
+            }
+          },
+          {
+            key: {
+              text: "Risk-Based Testing"
+            },
+            value: {
+              text: "Prioritizing tests based on risk and impact"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Methodologies</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Agile/Scrum"
+            },
+            value: {
+              text: "Sprint-based iterative delivery, daily standups, ceremonies"
+            }
+          },
+          {
+            key: {
+              text: "User-Centered Design"
+            },
+            value: {
+              text: "Empathy mapping, user research, journey mapping"
+            }
+          },
+          {
+            key: {
+              text: "Content Design"
+            },
+            value: {
+              text: "Clear, simple, jargon-free language for government services"
+            }
+          },
+          {
+            key: {
+              text: "Test-Driven Approach"
+            },
+            value: {
+              text: "Creating test cases before and during development"
+            }
+          },
+          {
+            key: {
+              text: "Code Review"
+            },
+            value: {
+              text: "Peer review for code quality, knowledge sharing, and defect prevention"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Standards & Frameworks</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "WCAG 2.1 Level AA"
+            },
+            value: {
+              text: "Web Content Accessibility Guidelines for inclusive design"
+            }
+          },
+          {
+            key: {
+              text: "GOV.UK Design Patterns"
+            },
+            value: {
+              text: "Proven solutions to common user needs in government services"
+            }
+          },
+          {
+            key: {
+              text: "DDTS Framework"
+            },
+            value: {
+              text: "Define, Design, Test, Support delivery structure"
+            }
+          }
+        ]
+      }) }}
+
+      <p style="margin-top: 40px;">
+        <a href="/t-level" class="govuk-link">← Back to T-Level Hub</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

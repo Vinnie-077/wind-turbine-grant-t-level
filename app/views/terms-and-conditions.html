@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Terms and conditions – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Terms and conditions</h1>
+
+      <h2 class="govuk-heading-m">Use of this service</h2>
+      <p class="govuk-body">This service is provided by DEFRA to allow you to apply for wind turbine grants. By using this service, you agree to these terms and conditions.</p>
+
+      <h2 class="govuk-heading-m">Accuracy of information</h2>
+      <p class="govuk-body">You must ensure that all information you provide in your application is accurate and complete. Providing false or misleading information may result in:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your application being rejected</li>
+        <li>recovery of any grant payments made</li>
+        <li>legal action</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Grant eligibility</h2>
+      <p class="govuk-body">By submitting an application, you confirm that you meet all eligibility criteria for the wind turbine grant. These criteria include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>owning your business</li>
+        <li>owning the property or land where the turbine will be installed</li>
+        <li>your property being connected to the National Grid</li>
+        <li>having sufficient available space for installation</li>
+        <li>agreeing to keep the turbine in place for at least 20 years</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Grant conditions</h2>
+      <p class="govuk-body">If your application is approved and you receive a grant:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you must keep the turbine in place for at least 20 years from installation</li>
+        <li>you must maintain the turbine in safe working condition</li>
+        <li>you must allow inspection by DEFRA representatives</li>
+        <li>any changes to the installation require prior approval</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Limitation of liability</h2>
+      <p class="govuk-body">This service is provided on an 'as is' basis. We cannot be held liable for:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>any loss or damage caused by using this service</li>
+        <li>any technical issues or downtime</li>
+        <li>any inaccurate information provided by third parties</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Changes to these terms</h2>
+      <p class="govuk-body">We may update these terms and conditions at any time. We will notify you of any significant changes by email.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

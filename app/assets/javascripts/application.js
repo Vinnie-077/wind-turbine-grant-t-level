@@ -4,9 +4,9 @@
 //
 
 window.GOVUKPrototypeKit.documentReady(() => {
-  // Session timeout - 30 seconds for testing (change to 30 * 60 * 1000 for production)
-  var timeoutDuration = 30 * 1000 // 30 seconds in milliseconds
-  var warningDuration = 5 * 1000 // Show warning 5 seconds before timeout
+  // Session timeout - 30 minutes (1800000 milliseconds)
+  var timeoutDuration = 30 * 60 * 1000 // 30 minutes in milliseconds
+  var warningDuration = 5 * 60 * 1000 // Show warning 5 minutes before timeout
   var timeoutTimer
   var warningTimer
   var warningBanner

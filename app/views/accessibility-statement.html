@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Accessibility statement – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Accessibility statement</h1>
+
+      <p class="govuk-body">This accessibility statement applies to the wind turbine grant application service.</p>
+
+      <h2 class="govuk-heading-m">How accessible this website is</h2>
+      <p class="govuk-body">We aim to make this service accessible to all users, including those with disabilities. We follow accessibility best practices and the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA.</p>
+
+      <h2 class="govuk-heading-m">What we do to make this service accessible</h2>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>use clear fonts and sufficient colour contrast</li>
+        <li>make forms simple and easy to understand</li>
+        <li>ensure keyboard navigation is fully supported</li>
+        <li>provide alternative text for images</li>
+        <li>use descriptive page titles and headings</li>
+        <li>test with accessibility tools and assistive technologies</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Reporting accessibility problems</h2>
+      <p class="govuk-body">If you find any problems with this service or think we're not meeting accessibility requirements, please contact:</p>
+      <p class="govuk-body">
+        Email: <a href="mailto:accessibility@defra.gov.uk" class="govuk-link">accessibility@defra.gov.uk</a><br>
+        Telephone: 0300 123 4567
+      </p>
+
+      <h2 class="govuk-heading-m">Enforcement procedure</h2>
+      <p class="govuk-body">The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies Accessibility Regulations 2018 (the accessibility regulations). If you're not happy with how we respond to your complaint, you can contact the EHRC at:</p>
+      <p class="govuk-body">
+        <a href="https://www.equalityhumanrights.com" class="govuk-link">www.equalityhumanrights.com</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Privacy notice – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Privacy notice</h1>
+
+      <h2 class="govuk-heading-m">Who we are</h2>
+      <p class="govuk-body">This service is run by the Department for Environment, Food and Rural Affairs (DEFRA).</p>
+
+      <h2 class="govuk-heading-m">Why we collect your personal data</h2>
+      <p class="govuk-body">We collect your personal data to process your wind turbine grant application. This includes:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your name and contact details</li>
+        <li>your business information</li>
+        <li>details about your property</li>
+        <li>information about your proposed wind turbine installation</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">How we use your data</h2>
+      <p class="govuk-body">We use your personal data to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>process your grant application</li>
+        <li>contact you about your application</li>
+        <li>arrange installation of your wind turbine</li>
+        <li>process grant payments</li>
+        <li>comply with legal and regulatory requirements</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Who we share your data with</h2>
+      <p class="govuk-body">We may share your data with:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>installation contractors</li>
+        <li>other government departments as required by law</li>
+        <li>our data processors who help us run this service</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">How long we keep your data</h2>
+      <p class="govuk-body">We keep your personal data for 7 years after your application is closed, in accordance with government record keeping requirements.</p>
+
+      <h2 class="govuk-heading-m">Your rights</h2>
+      <p class="govuk-body">Under data protection law, you have the right to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>request access to your personal data</li>
+        <li>request correction of inaccurate data</li>
+        <li>request deletion of your data</li>
+        <li>restrict how we use your data</li>
+        <li>request your data in a portable format</li>
+      </ul>
+
+      <p class="govuk-body">To exercise any of these rights, contact <a href="mailto:data@defra.gov.uk" class="govuk-link">data@defra.gov.uk</a></p>
+
+      <h2 class="govuk-heading-m">Contact us</h2>
+      <p class="govuk-body">For more information about how we use your data, contact our Data Protection Officer:</p>
+      <p class="govuk-body">
+        DEFRA Data Protection Officer<br>
+        Email: <a href="mailto:dataprotection@defra.gov.uk" class="govuk-link">dataprotection@defra.gov.uk</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -13,8 +13,8 @@
       {% set totalPayment = selectedTurbines * 20000 %}
 
       {{ govukPanel({
-        titleText: "Application submitted",
-        html: "Your reference number<br><strong>WTG-" + (range(100000, 999999) | random | string) + "</strong>"
+        titleText: "Application complete",
+        html: "Your reference number<br><strong>WTAG" + (range(1000000, 9999999) | random | string) + "</strong>"
       }) }}
 
       <p class="app-print-link">

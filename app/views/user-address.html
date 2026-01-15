@@ -30,6 +30,8 @@
 
       <form class="form" action="/address-answer" method="post">
 
+        <fieldset class="govuk-fieldset">
+
         {{ govukInput({
           label: {
             text: "Address line 1"
@@ -87,6 +89,8 @@
           classes: "govuk-input--width-10",
           errorMessage: errorMessages['address-postcode'] if errorMessages else false
         }) }}
+
+        </fieldset>
 
         {{ govukButton({
           text: "Continue"

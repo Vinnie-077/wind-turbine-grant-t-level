@@ -23,35 +23,106 @@
         rows: [
           {
             key: {
-              text: "Number of balls you can juggle"
+              text: "Business name"
             },
             value: {
-              text: data['how-many-balls']
+              text: data['business-name']
             },
             actions: {
               items: [
                 {
-                  href: "/wind-turbine-grant",
+                  href: "/business-name",
                   text: "Change",
-                  visuallyHiddenText: "number of balls you can juggle"
+                  visuallyHiddenText: "business name"
                 }
               ]
             }
-          }
-          ,
+          },
           {
             key: {
-              text: "Your most impressive juggling trick"
+              text: "Property address"
             },
             value: {
-              text: data['most-impressive-trick']
+              html: data['address-line-1'] + '<br>' + 
+                    (data['address-line-2'] + '<br>' if data['address-line-2'] else '') +
+                    data['address-town'] + '<br>' +
+                    (data['address-county'] + '<br>' if data['address-county'] else '') +
+                    data['address-postcode']
             },
             actions: {
               items: [
                 {
-                  href: "/juggling-trick",
+                  href: "/user-address",
                   text: "Change",
-                  visuallyHiddenText: "your most impressive juggling trick"
+                  visuallyHiddenText: "property address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "National Grid reference"
+            },
+            value: {
+              text: data['national-grid-reference']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/national-grid",
+                  text: "Change",
+                  visuallyHiddenText: "National Grid reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Available space"
+            },
+            value: {
+              text: data['available-space'] + " sq ft"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/turbine-space",
+                  text: "Change",
+                  visuallyHiddenText: "available space"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "20-year commitment"
+            },
+            value: {
+              text: data['commitment-agreed']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/turbine-space",
+                  text: "Change",
+                  visuallyHiddenText: "20-year commitment"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Preferred assembly date"
+            },
+            value: {
+              text: data['assembly-date-day'] + "/" + data['assembly-date-month'] + "/" + data['assembly-date-year']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/assembly-date",
+                  text: "Change",
+                  visuallyHiddenText: "preferred assembly date"
                 }
               ]
             }

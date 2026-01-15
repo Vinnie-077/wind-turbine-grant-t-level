@@ -1,26 +1,33 @@
 {% extends "layouts/main.html" %}
 
-{% set pageName="Home" %}
+{% block pageTitle %}
+  Wind Turbine Grant & T-Level Hub
+{% endblock %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
-    <h1 class="govuk-heading-xl">
-      {{ serviceName }}
-    </h1>
-
-    <p>
-      <a href="/start">
-        Go to the start page
-      </a>
-    </p>
-
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">Welcome</h1>
+      <p class="govuk-body-l">This site contains two projects: a government grant application system and a placement documentation hub.</p>
+    </div>
   </div>
-</div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+      <div style="padding: 20px; border: 1px solid #b1b4b6; margin-bottom: 20px;">
+        <h2 class="govuk-heading-m"><a href="/start" class="govuk-link" style="text-decoration: none;">Wind Turbine Grant Application</a></h2>
+        <p class="govuk-body">Apply for a government grant to install small wind turbines on your property.</p>
+        <p><a href="/start" class="govuk-button">Start application</a></p>
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <div style="padding: 20px; border: 1px solid #b1b4b6; margin-bottom: 20px;">
+        <h2 class="govuk-heading-m"><a href="/t-level" class="govuk-link" style="text-decoration: none;">T-Level Team Hub</a></h2>
+        <p class="govuk-body">Learn about a 15-week digital placement at Defra, covering full-stack development, testing, PowerApps, and government digital services.</p>
+        <p><a href="/t-level" class="govuk-button">Explore hub</a></p>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}

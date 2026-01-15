@@ -1,0 +1,208 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  Timeline – T-Level Team Hub
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "T-Level Hub",
+        href: "/t-level"
+      },
+      {
+        text: "Timeline"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">15-Week Placement Timeline</h1>
+      <p class="govuk-body">A visual journey through the T-Level Digital Production, Design and Development placement at Defra.</p>
+
+      <div class="timeline">
+
+        <!-- WEEK 1-3 -->
+        <div class="timeline__item">
+          <div class="timeline__marker timeline__marker--complete"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h2 class="govuk-heading-m">Weeks 1-3</h2>
+              <span class="govuk-tag govuk-tag--blue">Complete</span>
+            </div>
+            <p class="govuk-body-s timeline__date">7 – 24 October</p>
+            <div class="timeline__description">
+              <h3 class="govuk-heading-s">Induction & Discovery</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Onboarding and team orientation</li>
+                <li>SunSpin Proposal (initial brainstorm and requirements)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEK 4-9 -->
+        <div class="timeline__item">
+          <div class="timeline__marker timeline__marker--complete"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h2 class="govuk-heading-m">Weeks 4-9</h2>
+              <span class="govuk-tag govuk-tag--blue">Complete</span>
+            </div>
+            <p class="govuk-body-s timeline__date">28 October – 5 December</p>
+            <div class="timeline__description">
+              <h3 class="govuk-heading-s">Core Competencies Module</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>Business Analysis</strong> – Stakeholder mapping and requirements gathering</li>
+                <li><strong>Content Design</strong> – User-centered copywriting and information architecture</li>
+                <li><strong>Architecture</strong> – System design and technical planning</li>
+                <li><strong>Software Development</strong> – Frontend and backend implementation</li>
+                <li><strong>Project Management</strong> – Planning, estimation, and tracking</li>
+                <li><strong>Delivery Management</strong> – Agile ceremonies and team coordination</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEK 10 -->
+        <div class="timeline__item">
+          <div class="timeline__marker timeline__marker--complete"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h2 class="govuk-heading-m">Week 10</h2>
+              <span class="govuk-tag govuk-tag--blue">Complete</span>
+            </div>
+            <p class="govuk-body-s timeline__date">9 December</p>
+            <div class="timeline__description">
+              <h3 class="govuk-heading-s">Testing & New Project Launch</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><strong>QAT</strong> – Quality Assurance and Testing module</li>
+                <li><strong>PowerApps Tree Health System</strong> – Project kickoff</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEK 11-12 -->
+        <div class="timeline__item">
+          <div class="timeline__marker timeline__marker--complete"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h2 class="govuk-heading-m">Weeks 11-12</h2>
+              <span class="govuk-tag govuk-tag--blue">Complete</span>
+            </div>
+            <p class="govuk-body-s timeline__date">10 – 20 December</p>
+            <div class="timeline__description">
+              <h3 class="govuk-heading-s">PowerApps Tree Health System</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Canvas app development with Dataverse integration</li>
+                <li>Form validation and data entry workflows</li>
+                <li>Project completed and delivered</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEK 13-14 -->
+        <div class="timeline__item">
+          <div class="timeline__marker timeline__marker--complete"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h2 class="govuk-heading-m">Weeks 13-14</h2>
+              <span class="govuk-tag govuk-tag--blue">Complete</span>
+            </div>
+            <p class="govuk-body-s timeline__date">6 – 14 January</p>
+            <div class="timeline__description">
+              <h3 class="govuk-heading-s">Wind Turbine Grant Application System</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Full-stack development: requirements → design → build → test</li>
+                <li>GOV.UK Prototype Kit (Nunjucks, HTML, CSS)</li>
+                <li>Form validation, session management, and date constraints</li>
+                <li>Project completed and live</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- WEEK 15 -->
+        <div class="timeline__item timeline__item--current">
+          <div class="timeline__marker timeline__marker--current"></div>
+          <div class="timeline__content">
+            <div class="timeline__header">
+              <h2 class="govuk-heading-m">Week 15</h2>
+              <span class="govuk-tag govuk-tag--purple">Current</span>
+            </div>
+            <p class="govuk-body-s timeline__date">15 January +</p>
+            <div class="timeline__description">
+              <h3 class="govuk-heading-s">T-Level Team Hub Documentation</h3>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Creating documentation site for placement journey</li>
+                <li>Sharing learnings and key takeaways</li>
+                <li>Reflecting on technologies and methodologies</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <h2 class="govuk-heading-m" style="margin-top: 60px;">Key Statistics</h2>
+      
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Total Duration"
+            },
+            value: {
+              text: "15 weeks"
+            }
+          },
+          {
+            key: {
+              text: "Projects Completed"
+            },
+            value: {
+              text: "2 live projects"
+            }
+          },
+          {
+            key: {
+              text: "Modules Covered"
+            },
+            value: {
+              text: "6 core competencies + testing"
+            }
+          },
+          {
+            key: {
+              text: "Technologies Learned"
+            },
+            value: {
+              text: "GOV.UK Kit, PowerApps, Dataverse, Jira, and more"
+            }
+          }
+        ]
+      }) }}
+
+      <p style="margin-top: 40px;">
+        <a href="/t-level" class="govuk-link">← Back to T-Level Hub</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

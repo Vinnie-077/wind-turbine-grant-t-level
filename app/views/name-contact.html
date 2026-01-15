@@ -22,7 +22,11 @@
       <h1 class="govuk-heading-l">Your name and contact details</h1>
 
       <form class="form" action="/user-address" method="post">
-
+        {{ govukDetails({
+          summaryText: "Why we need this information",
+          text: "We need your contact details to process your wind turbine grant application and keep you updated on its progress. We will only use your information in accordance with our privacy policy."
+        }) }}
+        
         {{ govukInput({
           label: {
             text: "Full name",
@@ -42,9 +46,6 @@
             text: "Phone number",
             classes: "govuk-label--m"
           },
-          hint: {
-            text: "We will use this to contact you about your application if needed"
-          },
           id: "phone-number",
           name: "phone-number",
           value: data['phone-number'],
@@ -61,9 +62,6 @@
             text: "Email address",
             classes: "govuk-label--m"
           },
-          hint: {
-            text: "We will send confirmation of your application to this address"
-          },
           id: "email-address",
           name: "email-address",
           value: data['email-address'],
@@ -74,6 +72,8 @@
             required: "required"
           }
         }) }}
+
+
 
         {{ govukButton({
           text: "Continue"

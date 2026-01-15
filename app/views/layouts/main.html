@@ -44,7 +44,7 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     }) }}
     {{ govukServiceNavigation({
         serviceName: serviceName,
-        serviceUrl: "/start"
+        serviceUrl: "/"
     })}}
 
 {% endblock %}
@@ -57,4 +57,33 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
     html: 'This is an alpha service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.'
   }) }}
   {{ super() }}
+{% endblock %}
+
+{% block footer %}
+  {{ govukFooter({
+    meta: {
+      items: [
+        {
+          href: "/cookies",
+          text: "Cookies"
+        },
+        {
+          href: "/privacy-notice",
+          text: "Privacy notice"
+        },
+        {
+          href: "/accessibility-statement",
+          text: "Accessibility"
+        },
+        {
+          href: "/terms-and-conditions",
+          text: "Terms and conditions"
+        }
+      ],
+      visuallyHiddenTitle: "Footer links"
+    },
+    contentLicence: {
+      html: '<a href="/t-level" class="govuk-link">Created by T Level Students</a>'
+    }
+  }) }}
 {% endblock %}

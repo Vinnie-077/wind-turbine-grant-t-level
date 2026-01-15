@@ -1,0 +1,121 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{% block pageTitle %}
+  Retrospective – T-Level Team Hub
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "T-Level Hub",
+        href: "/t-level"
+      },
+      {
+        text: "Retrospective"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Retrospective</h1>
+      <p class="govuk-body">Honest reflection on 15 weeks of learning, building, and growing in a real government digital service environment.</p>
+
+      <h2 class="govuk-heading-m">What Went Well</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><strong>Strong mentorship.</strong> Anoushka provided excellent guidance without holding hands. Clear direction when needed, space to figure things out otherwise.</li>
+        <li><strong>Real projects with real impact.</strong> Building systems that will actually be used by real people is incredibly motivating. Not just exercises.</li>
+        <li><strong>Exposure to the full lifecycle.</strong> From requirements gathering to deployment. Understanding how each phase informs the next was invaluable.</li>
+        <li><strong>Collaborative environment.</strong> Working with a supportive team made learning enjoyable. Code reviews and standups felt collaborative, not critical.</li>
+        <li><strong>Rapid iteration on projects.</strong> Quick feedback loops and frequent deployments meant we could learn from mistakes quickly.</li>
+        <li><strong>Government-first mindset.</strong> Learning that simplicity, accessibility, and user needs trump flashy design. This perspective shift is lasting.</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">What Was Challenging</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><strong>Time pressure on deliverables.</strong> 2 weeks to deliver the Wind Turbine system was tight. Would have appreciated more time for refinement, but constraints breed creativity.</li>
+        <li><strong>Balancing learning with delivery.</strong> Sometimes want to dig deeper into a technology, but project deadlines call. Had to prioritize pragmatism over perfectionism.</li>
+        <li><strong>Government-specific constraints.</strong> Can't just use the latest npm package or bleeding-edge framework. Have to work within accessibility, security, and maintenance standards. Restriction breeds discipline.</li>
+        <li><strong>Context switching.</strong> Moving between PowerApps, Nunjucks, and documentation required mental gear shifts. But also showed adaptability.</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Key Takeaways</h2>
+
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 20px 0; border-left: 4px solid #1d70b8;">
+        <h3 class="govuk-heading-s">1. User needs come first, always</h3>
+        <p class="govuk-body">Government digital design isn't about winning awards. It's about solving real problems for real people. Clear language, accessible design, and thoughtful interaction patterns matter infinitely more than visual novelty.</p>
+      </div>
+
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 20px 0; border-left: 4px solid #1d70b8;">
+        <h3 class="govuk-heading-s">2. Shipping is learning</h3>
+        <p class="govuk-body">I learned more from deploying the Wind Turbine system and seeing real users interact with it than from any documentation or course. Real-world feedback is invaluable.</p>
+      </div>
+
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 20px 0; border-left: 4px solid #1d70b8;">
+        <h3 class="govuk-heading-s">3. Testing isn't optional, it's essential</h3>
+        <p class="govuk-body">Proper test case design and risk-based testing save so much time. Quality isn't tested in; it's built in. Early testing and thoughtful validation prevents expensive bugs downstream.</p>
+      </div>
+
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 20px 0; border-left: 4px solid #1d70b8;">
+        <h3 class="govuk-heading-s">4. Consistency is a feature</h3>
+        <p class="govuk-body">The GOV.UK design system works because it's consistent. Following patterns might feel restrictive at first, but it creates familiarity and reduces cognitive load for users.</p>
+      </div>
+
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 20px 0; border-left: 4px solid #1d70b8;">
+        <h3 class="govuk-heading-s">5. Accessibility benefits everyone</h3>
+        <p class="govuk-body">Building with WCAG 2.1 AA compliance isn't just about wheelchairs. Clear navigation helps everyone. Good color contrast helps in bright sunlight. Simple language works for non-native speakers. Accessibility is good design.</p>
+      </div>
+
+      <div style="background-color: #f3f2f1; padding: 20px; margin: 20px 0; border-left: 4px solid #1d70b8;">
+        <h3 class="govuk-heading-s">6. Communication matters more than perfection</h3>
+        <p class="govuk-body">Clear daily standups, regular demos, and transparent status updates prevent misalignment. Problems caught early are problems solved cheaply.</p>
+      </div>
+
+      <h2 class="govuk-heading-m">What I'd Do Differently</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li><strong>Ask more questions upfront.</strong> Clearer initial requirements saves rework later. The 30 minutes spent clarifying user needs saves 3 hours of course correction.</li>
+        <li><strong>Test more continuously.</strong> Instead of testing at the end of each feature, test as you build. Catch issues while context is fresh.</li>
+        <li><strong>Document as you go.</strong> Waiting to document at the end is painful. Brief comments in code and quick Notion updates would have made the retrospective easier.</li>
+        <li><strong>Take more breaks.</strong> A 15-minute walk during complex problem-solving often solves it. Burnout reduces quality.</li>
+        <li><strong>Share knowledge earlier.</strong> Should have done more pairing sessions and knowledge transfer. Could have multiplied the team's capability.</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Next Steps</h2>
+
+      <p class="govuk-body">This placement ends, but the learning continues:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><strong>Keep building.</strong> Apply these lessons to the next project, whether government or commercial.</li>
+        <li><strong>Stay current on GOV.UK patterns.</strong> The design system evolves; staying up-to-date helps build better services.</li>
+        <li><strong>Mentor others.</strong> The best way to solidify learning is to teach it. Share what you've learned.</li>
+        <li><strong>Accessibility advocacy.</strong> Push every team to think about WCAG compliance. It should be standard, not an afterthought.</li>
+        <li><strong>Full-stack mindset.</strong> Don't specialize into a corner. Understanding the full system makes you more effective and valuable.</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Final Thoughts</h2>
+
+      <p class="govuk-body">15 weeks isn't very long, but it's enough to build real skills and real relationships. This placement was challenging, rewarding, and genuinely fun. Working on systems that matter, with people who care about quality, has spoiled me for mediocre projects.</p>
+
+      <p class="govuk-body">To anyone doing a T-Level in digital: you're about to have an incredible experience. The government is building digital services that matter. You'll learn more in these 15 weeks than in a year of courses. Embrace the constraints, ask questions, ship things, and enjoy the ride.</p>
+
+      <p style="margin-top: 40px;">
+        <a href="/t-level" class="govuk-link">← Back to T-Level Hub</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

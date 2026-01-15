@@ -1,0 +1,117 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block pageTitle %}
+  The Team – T-Level Team Hub
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "T-Level Hub",
+        href: "/t-level"
+      },
+      {
+        text: "The Team"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">The Team</h1>
+      <p class="govuk-body">The students and mentors who made this placement a success.</p>
+
+      <h2 class="govuk-heading-m">T-Level Students</h2>
+
+      <div style="margin-bottom: 40px; padding: 20px; border: 1px solid #b1b4b6;">
+        <h3 class="govuk-heading-s" style="margin-top: 0;">First Name (Mock Data)</h3>
+        <p class="govuk-body"><strong>Role:</strong> Digital Production, Design & Development</p>
+        <p class="govuk-body"><strong>Contributions:</strong> Full-stack development on Wind Turbine Grant Application system, PowerApps Tree Health System, GOV.UK Prototype Kit expertise, session management and date validation implementation.</p>
+        <p class="govuk-body"><strong>Key Skills Developed:</strong> Frontend development (Nunjucks, HTML, CSS, JavaScript), backend logic (Node.js, Express), form validation, accessibility testing, Agile delivery, user-centered design.</p>
+      </div>
+
+      <h2 class="govuk-heading-m">Leadership & Mentorship</h2>
+
+      <div style="margin-bottom: 40px; padding: 20px; border: 1px solid #b1b4b6;">
+        <h3 class="govuk-heading-s" style="margin-top: 0;">First Name (Line Manager)</h3>
+        <p class="govuk-body"><strong>Role:</strong> T-Level Programme Line Manager</p>
+        <p class="govuk-body"><strong>Support Provided:</strong> Been with us for the full 15-week placement, helping with everything we needed and sitting in on all our meetings. Provided guidance, ensured learning objectives were met while delivering real project value, and supported us through all aspects of the programme.</p>
+      </div>
+
+      <h2 class="govuk-heading-m">Defra Team</h2>
+
+      <p class="govuk-body">Special thanks to the Defra team who made this placement possible:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Project stakeholders for clear requirements and timely feedback</li>
+        <li>QA and testing specialists for sharing best practices</li>
+        <li>Team members who participated in code reviews and ceremonies</li>
+        <li>Leadership for creating a supportive learning environment</li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Learning Outcomes Achieved</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Government Digital Services"
+            },
+            value: {
+              text: "Completed – Deep understanding of GOV.UK patterns and accessibility"
+            }
+          },
+          {
+            key: {
+              text: "Testing & Quality Assurance"
+            },
+            value: {
+              text: "Completed – Test case design, risk-based testing, 7 principles"
+            }
+          },
+          {
+            key: {
+              text: "PowerApps Development"
+            },
+            value: {
+              text: "Completed – Canvas apps, Dataverse, form validation"
+            }
+          },
+          {
+            key: {
+              text: "Project Management"
+            },
+            value: {
+              text: "Completed – Agile ceremonies, Jira, delivery management"
+            }
+          },
+          {
+            key: {
+              text: "Full-Stack Development"
+            },
+            value: {
+              text: "Completed – Requirements, design, build, test, deploy cycle"
+            }
+          }
+        ]
+      }) }}
+
+      <p style="margin-top: 40px;">
+        <a href="/t-level" class="govuk-link">← Back to T-Level Hub</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}

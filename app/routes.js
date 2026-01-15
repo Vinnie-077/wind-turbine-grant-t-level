@@ -12,6 +12,7 @@ require('./routes/property')
 require('./routes/turbine')
 require('./routes/review')
 require('./routes/cookies')
+require('./routes/t-level')
 
 // Timeout route - clears session and shows timeout page
 router.get('/timeout', function (req, res) {
@@ -19,7 +20,7 @@ router.get('/timeout', function (req, res) {
   res.render('timeout')
 })
 
-// Redirect root to start page
+// Home page - shows both Wind Turbine and T-Level projects
 router.get('/', function (req, res) {
-  res.redirect('/start')
+  res.render('index')
 })

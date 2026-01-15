@@ -1,0 +1,118 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% block pageTitle %}
+  Key Learnings – T-Level Team Hub
+{% endblock %}
+
+{% block beforeContent %}
+  {{ super() }}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "T-Level Hub",
+        href: "/t-level"
+      },
+      {
+        text: "Key Learnings"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Key Learnings</h1>
+      <p class="govuk-body">What we learned across 15 weeks of government digital service delivery.</p>
+
+      <h2 class="govuk-heading-m">Government Digital Services</h2>
+
+      {{ govukDetails({
+        summaryText: "GOV.UK Prototype Kit & Design System",
+        text: "Discovered the power of rapid prototyping with the GOV.UK Prototype Kit. Built functional prototypes using Nunjucks templating, learned the importance of consistent design patterns, and understood how government prioritizes accessibility and user-centered design over visual novelty."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Accessibility & WCAG Compliance",
+        text: "Learned that accessibility isn't optional. Deep dive into WCAG 2.1 Level AA compliance, proper semantic HTML, color contrast ratios, keyboard navigation, and screen reader testing. It's about making services usable for everyone."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "User-Centered Design Principles",
+        text: "Realized that government services are about meeting user needs, not impressing stakeholders. Conducted user research, created journey maps, and designed content that's clear and simple for all users."
+      }) }}
+
+      <h2 class="govuk-heading-m">Testing & Quality Assurance</h2>
+
+      {{ govukDetails({
+        summaryText: "Test Case Design & Risk-Based Testing",
+        text: "Learned how to write effective test cases, prioritize tests based on risk, and think like a tester. Discovered the 7 testing principles: testing shows presence of defects, exhaustive testing is impossible, early testing saves time, defect clustering, pesticide paradox, testing is context-dependent, and absence of error fallacy."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "The Testing Pyramid",
+        text: "Understood the importance of balancing unit tests, integration tests, and end-to-end tests. Not everything needs to be tested at the UI level. Proper testing strategy saves time and reduces bugs."
+      }) }}
+
+      <h2 class="govuk-heading-m">PowerApps Development</h2>
+
+      {{ govukDetails({
+        summaryText: "Canvas Apps & Component-Based Architecture",
+        text: "Built functional canvas applications in PowerApps. Learned how to design reusable components, manage component properties, and create consistent user experiences across forms and screens."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Form Validation & User Input",
+        text: "Implemented robust form validation, error handling, and real-time feedback. Understanding data types, validation rules, and user guidance prevents bad data and improves user experience."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Dataverse & Data Integration",
+        text: "Connected PowerApps to Dataverse (Microsoft's cloud data platform), learned about tables, columns, relationships, and how to query data efficiently. It's the backbone of enterprise business apps."
+      }) }}
+
+      <h2 class="govuk-heading-m">Project & Delivery Management</h2>
+
+      {{ govukDetails({
+        summaryText: "Agile Ceremonies & DDTS Structure",
+        text: "Participated in daily standups, sprint planning, refinement, and retrospectives. Learned the DDTS (Define, Design, Test, Support) delivery framework and how breaking work into sprints keeps momentum and visibility high."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Jira & Work Management",
+        text: "Used Jira to track work, manage backlogs, and report progress. Learned proper issue creation, user story formatting, and how to keep the team synchronized across distributed work."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Stakeholder Communication",
+        text: "Realized that staying in sync with stakeholders prevents major rework. Regular demos, clear status updates, and early feedback loops are essential for project success."
+      }) }}
+
+      <h2 class="govuk-heading-m">Full-Stack Development Journey</h2>
+
+      {{ govukDetails({
+        summaryText: "Requirements → Design → Build → Test → Deploy",
+        text: "Experienced the full lifecycle of building a live government service: gathering requirements, designing the user experience, implementing the code, testing thoroughly, and deploying to production. Each phase is critical and informs the next."
+      }) }}
+
+      {{ govukDetails({
+        summaryText: "Version Control & Collaboration",
+        text: "Used Git and GitHub to collaborate with teammates. Learned the importance of meaningful commits, code review, and branching strategies. Clean version history helps everyone understand what changed and why."
+      }) }}
+
+      <p style="margin-top: 40px;">
+        <a href="/t-level" class="govuk-link">← Back to T-Level Hub</a>
+      </p>
+
+    </div>
+  </div>
+
+{% endblock %}
